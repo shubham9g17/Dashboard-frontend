@@ -1,11 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import { useAuth } from './hooks/useAuth';
 import SignInPage from './pages/SignInPage';
 import SignUpPage from './pages/SignUpPage';
 import DashboardPage from './pages/DashboardPage';
-import OrdersPage from './pages/OrdersPage';
-import ClicksPage from './pages/ClicksPage';
+import OrdersPage from './pages/OrderPage';
+import ClicksPage from './pages/ClickPage';
+import { useAuth } from './context/AuthContext';
 
 const AppRoutes: React.FC = () => {
   const { token } = useAuth();
