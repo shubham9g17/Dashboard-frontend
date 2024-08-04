@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { api } from '../services/api';
-import { useAuth } from '../hooks/useAuth';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 
 const ClicksPage: React.FC = () => {
-  const { token, setToken } = useAuth();
+  const { setToken } = useAuth();
   const [clicks, setClicks] = useState([]);
   const navigate = useNavigate();
 
@@ -13,7 +13,7 @@ const ClicksPage: React.FC = () => {
       try {
         const response = await api.get('/clicks');
         setClicks(response.data);
-      } catch (error) {
+      } catch (error: any) {
         console.error('Error fetching clicks data', error);
         if (error.response.status === 401) {
           setToken(null);

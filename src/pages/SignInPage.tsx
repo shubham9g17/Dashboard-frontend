@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../hooks/useAuth';
 import { api } from '../services/api';
 import FormInput from '../components/FormInput';
 import Button from '../components/Button';
-
+import { useAuth } from '../context/AuthContext';
+import { Link } from 'react-router-dom';
 const SignInPage: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -29,6 +29,7 @@ const SignInPage: React.FC = () => {
         <FormInput label="Email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
         <FormInput label="Password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
         <Button type="submit">Sign In</Button>
+        <p> Don't have an account?<Link style={{ marginLeft: '5px', textDecoration: "underline" }} to="/signup">Sign Up</Link> </p>
       </form>
     </div>
   );
