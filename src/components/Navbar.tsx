@@ -29,14 +29,14 @@ const Navbar: React.FC = () => {
           >
             Clicks
           </a>
-          {token?<button
+          {token ? <button
             onClick={onLogout}
             className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
           >
             Logout
-          </button>:<>
+          </button> : <>
           </>}
-          
+
         </div>
       </div>
     </nav>

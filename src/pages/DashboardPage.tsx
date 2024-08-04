@@ -25,11 +25,11 @@ const DashboardPage: React.FC = () => {
   }, [setToken, navigate]);
 
   return (
-    <div className="max-w-md mx-auto mt-10">
+    <div className="container mx-auto mt-10">
       <h2 className="text-2xl mb-4">Dashboard</h2>
-      <div className="mb-4">Clicks: {data.clicks}</div>
-      <div className="mb-4">Orders: {data.orders}</div>
-      <div className="mb-4">Amount: ${data.amount}</div>
+      <div className="mb-4">Clicks: {data.clicks === 0 ? 'No clicks yet' : data.clicks}</div>
+      <div className="mb-4">Orders: {data.orders === 0 ? 'No orders yet' : data.orders}</div>
+      <div className="mb-4">Amount: {data.amount === 0 ? 'No amount yet' : `$${data.amount}`}</div>
     </div>
   );
 };

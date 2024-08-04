@@ -25,7 +25,7 @@ const SignUpPage: React.FC = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto mt-10">
+    <div className="container mx-auto mt-10">
       <h2 className="text-2xl mb-4">Sign Up</h2>
       <form onSubmit={handleSubmit}>
         <FormInput label="Name" type="text" value={name} onChange={(e) => setName(e.target.value)} />

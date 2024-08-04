@@ -6,8 +6,8 @@ import Button from '../components/Button';
 import { useAuth } from '../context/AuthContext';
 import { Link } from 'react-router-dom';
 const SignInPage: React.FC = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('john@example.com');
+  const [password, setPassword] = useState('password123');
   const { setToken } = useAuth();
   const navigate = useNavigate();
 
@@ -23,8 +23,9 @@ const SignInPage: React.FC = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto mt-10">
+    <div className="container mx-auto mt-10">
       <h2 className="text-2xl mb-4">Sign In</h2>
+      <p style={{ opacity: 0.5 }}>Hint: Use Email: "john@example.com" & Password: "password123" For Seeing Existing Data</p>
       <form onSubmit={handleSubmit}>
         <FormInput label="Email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
         <FormInput label="Password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />

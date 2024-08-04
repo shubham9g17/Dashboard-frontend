@@ -25,30 +25,33 @@ const ClicksPage: React.FC = () => {
   }, [setToken, navigate]);
 
   return (
-    <div className="max-w-4xl mx-auto mt-10">
+    <div className="container mx-auto mt-10">
       <h2 className="text-2xl mb-4">Clicks</h2>
-      <table className="table-auto w-full">
-        <thead>
-          <tr>
-            <th className="px-4 py-2">Click ID</th>
-            <th className="px-4 py-2">Merchant</th>
-            <th className="px-4 py-2">Product</th>
-            <th className="px-4 py-2">Price</th>
-            <th className="px-4 py-2">User ID</th>
-          </tr>
-        </thead>
-        <tbody>
-          {clicks.map((click: any) => (
-            <tr key={click._id}>
-              <td className="border px-4 py-2">{click._id}</td>
-              <td className="border px-4 py-2">{click.merchant}</td>
-              <td className="border px-4 py-2">{click.product}</td>
-              <td className="border px-4 py-2">{click.price}</td>
-              <td className="border px-4 py-2">{click.user_id}</td>
+      {clicks.length === 0 ? (
+        <p>No clicks yet</p>
+      ) : (
+        <table className="table-auto w-full">
+          <thead>
+            <tr>
+              <th className="px-4 py-2 center">Click Id</th>
+              <th className="px-4 py-2">Merchant</th>
+              <th className="px-4 py-2">Product</th>
+              <th className="px-4 py-2">Price</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {clicks.map((click: any) => (
+              <tr key={click._id}>
+                <td className="border px-4 py-2">{click._id}</td>
+                <td className="border px-4 py-2">{click.merchant}</td>
+                <td className="border px-4 py-2">{click.product}</td>
+                <td className="border px-4 py-2">{click.price}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )}
+
     </div>
   );
 };

@@ -15,7 +15,7 @@ const FormInput: React.FC<FormInputProps> = ({ label, type, value, onChange }) =
         type={type}
         value={value}
         onChange={onChange}
-        className="w-full px-4 py-2 border rounded-md"
+        className="w-1/3 px-4 py-2 border rounded-md"
       />
     </div>
   );
