@@ -6,11 +6,15 @@ import DashboardPage from './pages/DashboardPage';
 import OrdersPage from './pages/OrderPage';
 import ClicksPage from './pages/ClickPage';
 import { useAuth } from './context/AuthContext';
+import Navbar from './components/Navbar';
+
 
 const AppRoutes: React.FC = () => {
   const { token } = useAuth();
 
   return (
+    <>
+    <Navbar/>
     <Router>
       <Routes>
         <Route path="/signin" element={<SignInPage />} />
@@ -20,6 +24,7 @@ const AppRoutes: React.FC = () => {
         <Route path="/clicks" element={token ? <ClicksPage /> : <Navigate to="/signin" />} />
       </Routes>
     </Router>
+    </>
   );
 };
 
